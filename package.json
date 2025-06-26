@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host 0.0.0.0 --port 4321",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -12,7 +12,9 @@
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
+    "@tailwindcss/vite": "^4.1.10",
     "astro": "^5.10.0",
-    "sharp": "^0.34.2"
+    "sharp": "^0.34.2",
+    "tailwindcss": "^4.1.10"
   }
 }

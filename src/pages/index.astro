@@ -3,6 +3,12 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 3);
 ---
 
 <!doctype html>
@@ -10,40 +16,168 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body class="bg-gray-50">
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+		
+		<!-- Modern Hero Section -->
+		<section class="hero-section">
+			<div class="hero-content">
+				<h1 class="hero-title">
+					Blog
+				</h1>
+				<p class="hero-description">
+					{SITE_DESCRIPTION}
+				</p>
+			</div>
+		</section>
+
+		<!-- Featured Posts -->
+		<section class="py-16">
+			<div class="container mx-auto px-4">
+				<h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Latest Posts</h2>
+				<div class="grid md:grid-cols-3 gap-8">
+					{posts.map((post) => (
+						<article class="card">
+							{post.data.heroImage ? (
+								<img 
+									src={post.data.heroImage.src}
+									alt={post.data.title}
+									class="w-full h-48 object-cover rounded-t-lg mb-4"
+								/>
+							) : (
+								<div class="w-full h-48 bg-gray-200 rounded-t-lg mb-4 flex items-center justify-center">
+									<span class="text-gray-500">No image</span>
+								</div>
+							)}
+							<div class="p-6">
+								<h3 class="text-xl font-semibold text-gray-900 mb-2">
+									<a href={`/blog/${post.id}/`} class="hover:text-blue-600 transition-colors">
+										{post.data.title}
+									</a>
+								</h3>
+								<p class="text-gray-600 mb-4 line-clamp-3">
+									{post.data.description}
+								</p>
+								<div class="flex items-center justify-between text-sm text-gray-500">
+									<FormattedDate date={post.data.pubDate} />
+									<a href={`/blog/${post.id}/`} class="text-blue-600 hover:text-blue-700 font-medium">
+										Read more →
+									</a>
+								</div>
+							</div>
+						</article>
+					))}
+				</div>
+				<div class="text-center mt-12">
+					<a href="/" class="btn-outline border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+						View All Posts
+					</a>
+				</div>
+			</div>
+		</section>
+
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero-section {
+		position: relative;
+		background: #f8f9fa;
+		padding: 120px 20px 140px;
+		overflow: hidden;
+		min-height: 400px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.hero-section::before {
+		content: '';
+		position: absolute;
+		top: -10%;
+		right: -5%;
+		width: 500px;
+		height: 500px;
+		background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+		border-radius: 60% 40% 30% 70%;
+		opacity: 0.9;
+		z-index: 1;
+	}
+	
+	.hero-section::after {
+		content: '';
+		position: absolute;
+		bottom: -15%;
+		right: 15%;
+		width: 300px;
+		height: 300px;
+		background: linear-gradient(135deg, #3b82f6 0%, #93c5fd 100%);
+		border-radius: 40% 60% 70% 30%;
+		opacity: 0.7;
+		z-index: 1;
+	}
+	
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	
+	.hero-title {
+		font-size: clamp(3rem, 8vw, 5rem);
+		font-weight: 600;
+		color: #2d3748;
+		line-height: 1.1;
+		margin: 0 0 32px 0;
+		letter-spacing: -0.02em;
+	}
+	
+	.hero-description {
+		font-size: 1.25rem;
+		color: #4a5568;
+		line-height: 1.6;
+		max-width: 600px;
+		margin: 0 auto;
+		font-weight: 400;
+	}
+	
+	@media (max-width: 768px) {
+		.hero-section {
+			padding: 80px 20px 100px;
+			min-height: 300px;
+		}
+		
+		.hero-section::before {
+			width: 350px;
+			height: 350px;
+			top: -5%;
+			right: -10%;
+		}
+		
+		.hero-section::after {
+			width: 200px;
+			height: 200px;
+			bottom: -10%;
+			right: 10%;
+		}
+		
+		.hero-title {
+			font-size: 3rem;
+		}
+		
+		.hero-description {
+			font-size: 1.1rem;
+		}
+	}
+
+	.line-clamp-3 {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+</style>
