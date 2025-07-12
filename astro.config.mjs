@@ -7,7 +7,6 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://cloudagent.io',
-	base: '/blog',
 	integrations: [mdx(), sitemap(), tailwind()],
 	build: {
 		format: 'directory',

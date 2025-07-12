@@ -22,9 +22,6 @@ frontend:
         - key: 'Strict-Transport-Security'
           value: 'max-age=31536000; includeSubDomains'
   rewrites:
-    - source: '/blog'
-      target: '/blog/index.html'
-      status: '200'
-    - source: '/blog/cloud-ransomware-defense-recovery'
-      target: '/blog/cloud-ransomware-defense-recovery/index.html'
+    - source: '/<*>'
+      target: '/<*>/index.html'
       status: '200' 

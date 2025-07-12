@@ -51,7 +51,7 @@ const posts = (await getCollection('blog')).sort(
 							)}
 							<div class="p-6">
 								<h3 class="text-xl font-semibold text-gray-900 mb-2">
-									<a href={`/blog/${post.id}/`} class="hover:text-blue-600 transition-colors">
+									<a href={`/${post.id}/`} class="hover:text-blue-600 transition-colors">
 										{post.data.title}
 									</a>
 								</h3>
@@ -60,7 +60,7 @@ const posts = (await getCollection('blog')).sort(
 								</p>
 								<div class="flex items-center justify-between text-sm text-gray-500">
 									<FormattedDate date={post.data.pubDate} />
-									<a href={`/blog/${post.id}/`} class="text-blue-600 hover:text-blue-700 font-medium">
+									<a href={`/${post.id}/`} class="text-blue-600 hover:text-blue-700 font-medium">
 										Read more →
 									</a>
 								</div>
