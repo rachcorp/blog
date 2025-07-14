@@ -2,7 +2,7 @@
 const today = new Date();
 ---
 
-<footer class="bg-white border-t border-gray-200 px-4 md:px-6">
+<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 px-4 md:px-6 transition-colors">
   <div class="mx-auto py-6">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
       <div class="flex items-center gap-2">
@@ -39,25 +39,25 @@ const today = new Date();
             </defs>
           </svg>
         </div>
-        <div class="text-sm text-gray-500 hidden md:block">
+        <div class="text-sm text-gray-500 dark:text-gray-400 hidden md:block">
           © {today.getFullYear()} cloudagent. All rights reserved.
         </div>
       </div>
       <div class="block md:flex items-center">
-        <nav class="flex space-x-6 mb-4 md:mb-0 border-r pr-6 mr-6">
-          <a href="/" class="text-primary-600 hover:text-primary-800">
+        <nav class="flex space-x-6 mb-4 md:mb-0 border-r border-gray-200 dark:border-gray-700 pr-6 mr-6">
+          <a href="/" class="text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">
             Home
           </a>
-          <a href="/libraries" class="text-primary-600 hover:text-primary-800">
+          <a href="/libraries" class="text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">
             Library
           </a>
-          <a href="/" class="text-primary-600 hover:text-primary-800">
+          <a href="/" class="text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">
             Blog
           </a>
-          <a href="/faq" class="text-primary-600 hover:text-primary-800">
+          <a href="/faq" class="text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">
             FAQ
           </a>
-          <a href="/pricing" class="text-primary-600 hover:text-primary-800">
+          <a href="/pricing" class="text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">
             Pricing
           </a>
         </nav>
@@ -66,7 +66,7 @@ const today = new Date();
             href="https://www.linkedin.com/company/asecurecloud/"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-600 hover:text-primary-600"
+            class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
           >
             <!-- LinkedIn Icon -->
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -77,7 +77,7 @@ const today = new Date();
             href="https://x.com/ACloudSecure"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-600 hover:text-primary-600"
+            class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
           >
             <!-- X (Twitter) Icon -->
             <svg width="20" height="20" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +86,7 @@ const today = new Date();
           </a>
           <a
             href="mailto:support@cloudagent.com"
-            class="text-gray-600 hover:text-primary-600"
+            class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
           >
             <!-- Mail Icon -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -95,7 +95,7 @@ const today = new Date();
           </a>
         </div>
       </div>
-      <div class="text-sm text-gray-500 block mt-4 md:hidden">
+      <div class="text-sm text-gray-500 dark:text-gray-400 block mt-4 md:hidden">
         © {today.getFullYear()} cloudagent. All rights reserved.
       </div>
     </div>
