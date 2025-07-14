@@ -85,9 +85,9 @@ const posts = (await getCollection('blog')).sort(
 	.hero-section {
 		position: relative;
 		background: #f8f9fa;
-		padding: 120px 20px 140px;
+		padding: 60px 20px 80px;
 		overflow: hidden;
-		min-height: 400px;
+		min-height: 200px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -135,11 +135,11 @@ const posts = (await getCollection('blog')).sort(
 	}
 	
 	.hero-title {
-		font-size: clamp(3rem, 8vw, 5rem);
+		font-size: clamp(2rem, 6vw, 3.5rem);
 		font-weight: 600;
 		color: #2d3748;
 		line-height: 1.1;
-		margin: 0 0 32px 0;
+		margin: 0 0 20px 0;
 		letter-spacing: -0.02em;
 		transition: color 0.3s ease;
 	}
@@ -164,8 +164,8 @@ const posts = (await getCollection('blog')).sort(
 	
 	@media (max-width: 768px) {
 		.hero-section {
-			padding: 80px 20px 100px;
-			min-height: 300px;
+			padding: 40px 20px 60px;
+			min-height: 150px;
 		}
 		
 		.hero-section::before {
