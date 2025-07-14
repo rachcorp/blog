@@ -9,11 +9,11 @@ When Marks & Spencer's systems went dark over Easter weekend 2025, shoppers coul
 
 What started as a "technical issue" turned into Britain's costliest retail cyberattack ever. The final bill? A staggering $400 million and counting.
 
-The attackers behind this chaos? A group called Scattered Spider, known for their social engineering skills. They didn't hack their way through firewalls—they simply talked their way into M&S's systems by tricking employees at a third-party contractor.
+The attackers behind this chaos? A group called Scattered Spider, known for their social engineering skills. They didn't hack their way through firewalls, they simply talked their way into M&S's systems by tricking employees at a third-party contractor.
 
 This isn't just another scary headline. It's a wake-up call for every business using cloud services. The same tactics that brought down one of Britain's most trusted retailers could target your company next.
 
-But here's the good news: most of these attacks are preventable. M&S's nightmare offers clear lessons on what works—and what doesn't—when protecting cloud infrastructure from ransomware.
+But here's the good news: most of these attacks are preventable. M&S's nightmare offers clear lessons on what works and what doesn't; when protecting cloud infrastructure from ransomware.
 
 ## Why Cloud Attacks Hit Harder Than Ever
 
@@ -21,7 +21,6 @@ The M&S attack wasn't unique. In 2024 alone, ransomware groups collected over $8
 
 Cloud infrastructure has become the new goldmine for attackers because:
 
-**They can scale damage instantly.** Once inside your AWS or Azure environment, attackers can spread across regions in minutes, not days.
 
 **Your backups become their first target.** Unlike old-school ransomware that just encrypted files, today's groups specifically hunt down your disaster recovery systems. No backups = no choice but to pay.
 
@@ -29,15 +28,15 @@ Cloud infrastructure has become the new goldmine for attackers because:
 
 **Social engineering beats technical security.** The most sophisticated firewall can't stop someone from simply asking for passwords over the phone.
 
-The scary part? These tactics work because they exploit human psychology, not technical vulnerabilities. That's why traditional security approaches often fall short in cloud environments.
+The scary part? These tactics work because they exploit human psychology, not technical vulnerabilities. That's why traditional security approaches often fall short.
 
 ## 7 Steps That Could Have Saved M&S $400 Million
 
-### Step 1: Lock Down Who Gets the Keys
+### Step 1: Lock Down Keys access
 
 Here's the uncomfortable truth: M&S got breached because someone had access who shouldn't have.
 
-**The problem:** Many companies give cloud access to anyone who asks, then forget to check if they still need it. Contractors often keep admin rights long after projects end.
+**The problem:** Many companies give cloud access to a large number of employees and contractors, then fail to check if they still need it. Multiple stories about contracting having elevated rights long after projects end.
 
 **The fix:** Treat cloud access like you would the keys to your safe:
 - Require two-factor authentication for everyone, no exceptions
@@ -49,7 +48,7 @@ Here's the uncomfortable truth: M&S got breached because someone had access who 
 
 Modern tools can automate much of this process. For instance, CloudAgent.io helps companies continuously monitor and validate their backup systems—the first thing attackers target—ensuring recovery plans work when needed most.
 
-### Step 2: Build Digital Walls Between Your Systems
+### Step 2: Basic network segmentation goes a long way
 
 Think of your cloud infrastructure like a building. You wouldn't give someone with lobby access the ability to walk into the CEO's office, right?
 
@@ -74,7 +73,7 @@ Here's the harsh reality: if attackers can delete or encrypt your backups, you'r
 - Test your backup restoration process monthly, not just when disaster strikes
 - Keep some backups completely offline or air-gapped
 
-**Critical insight:** M&S took weeks to restore full operations partly because their recovery plans weren't properly tested. Tools like CloudAgent.io can automatically verify that your backups are working and your recovery procedures will actually restore operations when needed.
+**Pro tip:** M&S took weeks to restore full operations partly because their recovery plans weren't properly tested. Tools like CloudAgent.io can automatically verify that your backups are working and your recovery procedures will actually restore operations when needed.
 
 ### Step 4: Watch for Warning Signs
 
